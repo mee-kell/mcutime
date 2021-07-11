@@ -1,14 +1,21 @@
 import React from 'react';
 
-const Movie = ({ data }) => {
+const Movie = ({ data, setChosenUrl }) => {
+
+    function updateUrl() {
+        let url = data.url
+        setChosenUrl({ url })
+    }
+    
     return (
         <div className="timeline-item">
-            <div className="timeline-item-content">
+            <button 
+                className="timeline-item-content" 
+                onClick={updateUrl}
+            >
                 {data.image}
-                <a href={data.url} target="_blank" rel="noopener noreferrer">
-                    {data.title}
-                </a>
-            </div>
+                <p>{data.title}</p>
+            </button>
         </div>
     )
 }
